@@ -12,6 +12,12 @@ body
 	color: #852E00;
 }
 
+h1
+{
+	text-align: center;
+	margin: 20px;
+}
+
 input, select
 {
 	border: 0;
@@ -31,7 +37,7 @@ input:focus, select:focus
 	overflow: hidden;
 }
 
-.item p
+.item > p
 {
 	float: left;
 	width: 30%;
@@ -74,13 +80,52 @@ input:focus, select:focus
 	margin: 0 20px;
 }
 
-.company p
+.companyItem
+{
+	overflow: hidden;
+}
+
+.companyItem:hover
+{
+	background-color: #fc8241;
+}
+
+.companySelected
+{
+	background-color: #e77233;
+}
+
+.companyItem > p
 {
 	width: 33%;
 	float: left;
 }
 
+
 .stationsForm
 {
-	
+	padding: auto 30px;
+	width: 50%;
+	overflow: hidden;
+	margin: 20px 0;
+	background-color: #e77233;
+}
+.stationsForm div
+{
+	overflow: hidden;
+	margin: 10px 20px;
+	border-bottom: 1px dotted #df6c2f;
+}
+
+.stationsForm p
+{
+	box-sizing: border-box;
+	width: 20%;
+	float: left;
+	text-align: center;
+}
+
+.stationsForm p:first-child
+{
+	width: 60%;
 }

@@ -23,6 +23,11 @@ angular.module('git')
 			}
 	});
 
+	$scope.$watch('selectedCity', function()
+	{
+		$scope.showed = Array($scope.cities).fill(false);
+	});
+
 	$scope.showStations = function(url, index)
 	{
 		

@@ -7,6 +7,7 @@
 </head>
 <body>
 	
+	<h1>FIND YOUR BIKE</h1>
 	<div ng-controller="mainController" >
 		<form id='input'>
 			<div class='countrySelect'>
@@ -25,7 +26,7 @@
 			</div>
 			<div class="selectCity" ng-hide='byCountrySelect'>
 				<label>or write particluar city</label>
-				<input type="text" placeholder = 'hit enter to chose' ng-model='selectedCityFromText' ng-keyup='showCompanyList = true'>
+				<input type="text" placeholder = 'hit enter to chose' ng-model='selectedCity' ng-keyup='showCompanyList = true'>
 			</div>
 		</form>
 		<section class="companyList" ng-show='showCompanyList'>
@@ -36,11 +37,22 @@
 				<P>COUNTRY</P>
 			</div>
 			<div class="company" ng-repeat='item in data | filter: {location: {country: selectedCountry }} | filter: {location: {city: selectedCity}} | filter: {location: {city: selectedCityFromText}}' ng-click='showStations(this.item.href, $index)'>
-				<p>{{item.location.city}}</p>
-				<p>{{item.name}}</p>
-				<p>{{item.location.country}}</p>
-				<div ng-show='showed[$index]'>
-					<p ng-repeat='item in stations'>Name: {{item.name}}</p>
+				<div class="companyItem" ng-class='{companySelected: showed[$index]}'>
+					<p>{{item.location.city}}</p>
+					<p>{{item.name}}</p>
+					<p>{{item.location.country}}</p>
+				</div>
+				<div class='stationsForm' ng-show='showed[$index]'>
+					<div class="keys">
+						<p>NAME</p>
+						<p>FREE BIKES</p>
+						<p>EMPTY SLOTS</p>
+					</div>
+					<div ng-repeat='item in stations'>
+						<p>{{item.name}}</p>
+						<p>{{item.free_bikes}}</p>
+						<p>{{item.empty_slots}}</p>
+					</div>
 				</div>
 			</div>
 		</section>
