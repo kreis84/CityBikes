@@ -30,10 +30,9 @@
 			</div>
 		</form>
 		<section class="companyList" ng-show='showCompanyList'>
-			<p class="instruction">Or click company below:</p>
 			<div class="keys">
 				<p>CITY</p>
-				<P>NAME</P>
+				<P>COMPANY NAME</P>
 				<P>COUNTRY</P>
 			</div>
 			<div class="company" ng-repeat='item in data | filter: {location: {country: selectedCountry }} | filter: {location: {city: selectedCity}} | filter: {location: {city: selectedCityFromText}}' ng-click='showStations(this.item.href, $index)'>
@@ -44,11 +43,11 @@
 				</div>
 				<div class='stationsForm' ng-show='showed[$index]'>
 					<div class="keys">
-						<p>NAME</p>
+						<p>STATION NAME</p>
 						<p>FREE BIKES</p>
 						<p>EMPTY SLOTS</p>
 					</div>
-					<div ng-repeat='item in stations'>
+					<div ng-repeat='item in stations' ng-click='stationSelect($event, this.item.name)'>
 						<p>{{item.name}}</p>
 						<p>{{item.free_bikes}}</p>
 						<p>{{item.empty_slots}}</p>

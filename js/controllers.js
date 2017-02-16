@@ -45,6 +45,12 @@ angular.module('git')
 		});
 	};
 
+	$scope.stationSelect = function($event,element)
+	{
+		$event.stopPropagation();
+		console.log(element);
+	};
+
 
 	bikesFactory.bikes()
 	.then(
