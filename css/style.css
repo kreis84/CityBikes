@@ -4,3 +4,22 @@
 	font-family: arial;
 }
 
+body
+{
+	width: 1200px;
+	margin: auto;
+}
+
+.item 
+{
+	width: 100%;
+	overflow: hidden;
+}
+
+.item p
+{
+	float: left;
+	width: 30%;
+}
+
+

@@ -1,15 +1,22 @@
 angular.module('git')
 
-.controller('mainController', function($scope, bikeFactory)
+.controller('mainController', function($scope, bikesFactory, helperFactory)
 {
-	bikeFactory.bikes()
+	$scope.data = [];
+	$scope.countries = [];
+	bikesFactory.bikes()
 	.then(
 		function(response)
 		{
-			console.log(response);
+			$scope.data = response.data.networks;
+			countries = helperFactory.getCountries($scope.data));
 		},
 		function(error)
 		{
 
 		});
+	$scope.elementClick = function(arg)
+	{
+		console.log(arg.item.location.city);
+	}
 });

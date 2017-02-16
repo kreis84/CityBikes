@@ -6,7 +6,15 @@
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 </head>
 <body>
-	
+	<label>Filter: <input type="text" ng-model='myFilter'></label>
+	<div ng-controller="mainController" >
+		<div class="item" ng-repeat="item in data | orderBy: 'location.country' | filter: myFilter"
+		ng-click='elementClick(this)'>
+			<p class="company">Company: {{item.company[0]}}</p>
+			<p class="city">City: {{item.location.city}}</p>
+			<p>Country: {{item.location.country}}</p>
+		</div>
+	</div>
 
 </body>
 <script type="text/javascript" src="js/angular.min.js"> </script>
