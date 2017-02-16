@@ -8,6 +8,21 @@ body
 {
 	width: 1200px;
 	margin: auto;
+	background-color: #D86325;
+	color: #852E00;
+}
+
+input, select
+{
+	border: 0;
+	background-color: #FFAB7E;
+	color: #852E00;
+	box-shadow: 0;
+}
+
+input:focus, select:focus
+{
+	outline: none;
 }
 
 .item 
@@ -22,4 +37,15 @@ body
 	width: 30%;
 }
 
+#input
+{
+	display: flex;
+	justify-content: space-around;
+	background-color: #E8844F;
+	padding: 20px;
+}
 
+.company p:last-child
+{
+	font-weight: bold;;
+}

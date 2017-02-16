@@ -6,16 +6,35 @@
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 </head>
 <body>
-	<label>Filter: <input type="text" ng-model='myFilter'></label>
+	
 	<div ng-controller="mainController" >
-		<div class="item" ng-repeat="item in data | orderBy: 'location.country' | filter: myFilter"
-		ng-click='elementClick(this)'>
-			<p class="company">Company: {{item.company[0]}}</p>
-			<p class="city">City: {{item.location.city}}</p>
-			<p>Country: {{item.location.country}}</p>
-		</div>
-	</div>
+		<form id='input'>
+			<div class='countrySelect'>
+				<label for="country">Select country: </label>
+				<select name="country" ng-model='selectedCountry'>
+					<option ng-repeat='item in countries | orderBy: item' value="{{item}}">{{item}}</option>
+				</select>
+				to get city list
+			</div>
+			<div class="selectCityFromList" ng-show='byCountrySelect'>
+				<label>SelectCity: 
+					<select name="" id=""></select>
+				</label>
+			</div>
+			<div class="selectCity" ng-hide='byCountrySelect'>
+				<label>Or write particluar city</label>
+				<input type="text" placeholder = 'hit enter to chose'>
+			</div>
+		</form>
+		<section class="companyList" ng-show='showCompanyList'>
+			<div class="company" ng-repeat='item in data | filter: {location: {country: selectedCountry }}'>
+				<p>City: {{item.location.city}}</p>
+				<p>Company name: {{item.company[0]}}</p>
+				<p>Country: {{item.location.country}}</p>
+			</div>
+		</section>
 
+	</div>
 </body>
 <script type="text/javascript" src="js/angular.min.js"> </script>
 <script type="text/javascript" src="js/app.js"> </script>
