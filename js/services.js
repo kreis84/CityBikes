@@ -5,9 +5,13 @@ angular.module('git')
 	return{
 		bikes: function()
 		{
-			return $http.get('http://api.citybik.es/v2/networks?fields=id,name,href,location,company');
+			return $http.get('http://api.citybik.es/v2/networks');
+		},
+		stations: function(url)
+		{
+			return $http.get('http://api.citybik.es'+url);
 		}
-	}
+	};
 })
 
 .factory('helperFactory', function()
@@ -23,5 +27,5 @@ angular.module('git')
 				if (item.location.country == country) return item;});		
 			return Array.from(new Set( temp.map(function(item){ return item.location.city;})));
 		}
-	}
+	};
 });

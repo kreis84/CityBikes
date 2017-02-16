@@ -9,15 +9,37 @@ angular.module('git')
 	$scope.selectedCountry = '';
 	$scope.selectedCity = '';
 	$scope.showCompanyList = '';
+	$scope.stations = [];
+	$scope.showed = [];
 
 	$scope.$watch('selectedCountry', function(){ 
 		if($scope.selectedCountry !== '') 
 			{
+				$scope.selectedCity = '';
 				$scope.byCountrySelect = true;
 				$scope.showCompanyList = true;				
 				$scope.cities = helperFactory.getCities($scope.data, $scope.selectedCountry);
+				$scope.showed = Array($scope.cities).fill(false);
 			}
 	});
+
+	$scope.showStations = function(url, index)
+	{
+		
+		$scope.showed = Array($scope.cities).fill(false);
+		bikesFactory.stations(url)
+		.then(
+		function(response)
+		{
+			$scope.stations = response.data.network.stations;
+			$scope.showed[index] = true;
+		},
+		function(error)
+		{
+
+		});
+	};
+
 
 	bikesFactory.bikes()
 	.then(
@@ -28,10 +50,6 @@ angular.module('git')
 		},
 		function(error)
 		{
-
+			alert('REQUEST FAILD');
 		});
-	$scope.elementClick = function(arg)
-	{
-		console.log(arg.item.location.city);
-	}
 });

@@ -45,13 +45,42 @@ input:focus, select:focus
 	padding: 20px;
 }
 
-.company
+
+.instruction
 {
-	cursor: pointer;
-	margin: 20px;
+	text-align: center;
+	margin:10px;
 }
 
-.company p:first-child
+.keys
 {
-	font-weight: bold;;
+	margin: 20px 20px 10px 20px;
+	overflow: hidden;
+}
+
+.keys p
+{
+	font-weight: bold;
+	width: 33%;
+	float: left;
+}
+
+.company
+{
+	border-bottom: 1px dotted #852E00;
+	padding: 5px 0;
+	overflow: hidden;
+	cursor: pointer;
+	margin: 0 20px;
+}
+
+.company p
+{
+	width: 33%;
+	float: left;
+}
+
+.stationsForm
+{
+	
 }

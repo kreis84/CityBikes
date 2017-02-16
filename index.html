@@ -29,11 +29,19 @@
 			</div>
 		</form>
 		<section class="companyList" ng-show='showCompanyList'>
-			<p class="instruction">Or click company You want see:</p>
-			<div class="company" ng-repeat='item in data | filter: {location: {country: selectedCountry }} | filter: {location: {city: selectedCity}} | filter: {location: {city: selectedCityFromText}}'>
-				<p>City: {{item.location.city}}</p>
-				<p>Company name: {{item.company[0]}}</p>
-				<p>Country: {{item.location.country}}</p>
+			<p class="instruction">Or click company below:</p>
+			<div class="keys">
+				<p>CITY</p>
+				<P>NAME</P>
+				<P>COUNTRY</P>
+			</div>
+			<div class="company" ng-repeat='item in data | filter: {location: {country: selectedCountry }} | filter: {location: {city: selectedCity}} | filter: {location: {city: selectedCityFromText}}' ng-click='showStations(this.item.href, $index)'>
+				<p>{{item.location.city}}</p>
+				<p>{{item.name}}</p>
+				<p>{{item.location.country}}</p>
+				<div ng-show='showed[$index]'>
+					<p ng-repeat='item in stations'>Name: {{item.name}}</p>
+				</div>
 			</div>
 		</section>
 
