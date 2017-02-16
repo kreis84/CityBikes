@@ -40,12 +40,18 @@ input:focus, select:focus
 #input
 {
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	background-color: #E8844F;
 	padding: 20px;
 }
 
-.company p:last-child
+.company
+{
+	cursor: pointer;
+	margin: 20px;
+}
+
+.company p:first-child
 {
 	font-weight: bold;;
 }

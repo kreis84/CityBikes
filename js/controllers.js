@@ -4,8 +4,10 @@ angular.module('git')
 {
 	$scope.data = [];
 	$scope.countries = [];
+	$scope.cities = [];
 	$scope.byCountrySelect = false;
 	$scope.selectedCountry = '';
+	$scope.selectedCity = '';
 	$scope.showCompanyList = '';
 
 	$scope.$watch('selectedCountry', function(){ 
@@ -13,6 +15,7 @@ angular.module('git')
 			{
 				$scope.byCountrySelect = true;
 				$scope.showCompanyList = true;				
+				$scope.cities = helperFactory.getCities($scope.data, $scope.selectedCountry);
 			}
 	});
 
