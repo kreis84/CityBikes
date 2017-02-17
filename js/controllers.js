@@ -1,7 +1,9 @@
 angular.module('git')
 
-.controller('mainController', function($scope, bikesFactory, helperFactory)
+.controller('mainController', function($scope, $window, bikesFactory, helperFactory)
 {
+
+
 	$scope.data = [];
 	$scope.countries = [];
 	$scope.cities = [];
@@ -11,6 +13,7 @@ angular.module('git')
 	$scope.showCompanyList = '';
 	$scope.stations = [];
 	$scope.showed = [];
+
 
 	$scope.$watch('selectedCountry', function(){ 
 		if($scope.selectedCountry !== '') 
@@ -45,12 +48,30 @@ angular.module('git')
 		});
 	};
 
-	$scope.stationSelect = function($event,element)
+	$scope.stationSelect = function($event, latitude, longitude)
 	{
 		$event.stopPropagation();
-		console.log(element);
+	//	console.log(latitude +'/'+ longitude);
+
+		$window.map = new google.maps.Map(document.getElementById('map'), {
+	        center: {
+	            lat: latitude,
+	            lng: longitude
+	        },
+	        zoom: 15
+	    });
+
+    	var marker = new google.maps.Marker({
+	   		position: {lat: latitude, lng: longitude},
+		    map: map,
+		    title: 'Hello World!'
+  		});
 	};
 
+	$scope.mapClick = function($event)
+	{
+		$event.stopPropagation();
+	};
 
 	bikesFactory.bikes()
 	.then(

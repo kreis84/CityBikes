@@ -40,29 +40,40 @@
 					<p>{{item.name}}</p>
 					<p>{{item.location.country}}</p>
 				</div>
-				<div class='stationsForm' ng-if='showed[$index]' ng-show='showed[$index]'>
-					<div class="keys">
-						<p>STATION NAME</p>
-						<p>FREE BIKES</p>
-						<p>EMPTY SLOTS</p>
+				<div class="stationsWrapper" ng-if='showed[$index]'>
+					<div class='stationsForm' ng-show='showed[$index]'>
+						<div class="keys">
+							<p>STATION NAME</p>
+							<p>FREE BIKES</p>
+							<p>EMPTY SLOTS</p>
+						</div>
+						<div ng-repeat='item in stations' ng-click='stationSelect($event, this.item.latitude, this.item.longitude)' >
+							<p>{{item.name}}</p>
+							<p>{{item.free_bikes}}</p>
+							<p>{{item.empty_slots}}</p>
+						</div>
+
 					</div>
-					<div ng-repeat='item in stations' ng-click='stationSelect($event, this.item.name)'>
-						<p>{{item.name}}</p>
-						<p>{{item.free_bikes}}</p>
-						<p>{{item.empty_slots}}</p>
-					</div>
+					<div id="map" ng-click='mapClick($event)'></div>
+
+						<!-- maap here -->
+
 				</div>
 			</div>
 		</section>
-
 	</div>
 </body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9qQjK59kBt4sJ3lo1rqaqNpG2nCesKsQ"
+    ></script>
 <script type="text/javascript" src="js/angular.min.js"> </script>
 <script type="text/javascript" src="js/app.js"> </script>
 <script type="text/javascript" src="js/route.js"> </script>
 <script type="text/javascript" src="js/services.js"> </script>
 <script type="text/javascript" src="js/controllers.js"> </script>
 <script type="text/javascript" src="js/directives.js"> </script>
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9qQjK59kBt4sJ3lo1rqaqNpG2nCesKsQ&callback=initMap"
-    async defer></script> -->
+<!--   AIzaSyCBM7I34oBnrW9M2n-EtTb8wSR5_z5N68E
+-->
+
+
 </html>
+
