@@ -78,9 +78,9 @@ input:focus, select:focus
 	overflow: hidden;
 }
 
-.companyItem:hover
+.company:hover
 {
-	background-color: #fc8241;
+	background-color: #e77233;
 }
 
 .companySelected
@@ -94,6 +94,10 @@ input:focus, select:focus
 	float: left;
 }
 
+.companyItem > p:first-child
+{
+	padding-left: 5px;
+}
 
 .stationsForm
 {
@@ -110,18 +114,24 @@ input:focus, select:focus
 	border-bottom: 1px dotted #8d421a;
 	padding: 5px;
 }
+.stationsForm div:last-child
+{
+	border: 0;
+}
 
 .stationsForm p
 {
 	box-sizing: border-box;
-	width: 20%;
+	width: 25%;
 	float: left;
+	padding-left: 5px;
 	text-align: center;
 }
 
 .stationsForm p:first-child
 {
-	width: 60%;
+	width: 50%;
+	text-align: left;
 }
 
 .stationsForm .keys
@@ -132,4 +142,10 @@ input:focus, select:focus
 .stationsForm div:not(.keys):hover
 {
 	background-color: #fe8b4e;
+}
+
+#map
+{
+	width: 100%;
+	height: 400px;
 }
