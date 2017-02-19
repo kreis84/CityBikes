@@ -219,3 +219,35 @@ input:focus, select:focus
     max-height: 0;
     opacity:1;
 }
+
+@media screen and (max-width: 750px)
+{
+	.mapWrapper
+	{
+		width: 100%;
+	}
+
+	.stationsForm
+	{
+		width: 100%;
+	}
+
+	#input
+	{
+		font-size: 2em;
+	}
+
+	#input select
+	{
+		font-size: 1em;
+	}
+
+	h1
+	{
+		font-size: 3em;
+	}
+	.companyList
+	{
+		font-size: 2em;
+	}
+}
