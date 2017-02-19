@@ -2,8 +2,6 @@ angular.module('git')
 
 .controller('mainController', function($scope, $window, bikesFactory, helperFactory, $element)
 {
-	//$element.addClass('loading');
-
 	$scope.data = [];
 	$scope.countries = [];
 	$scope.cities = [];
@@ -45,7 +43,7 @@ angular.module('git')
 		},
 		function(error)
 		{
-
+			alert('error'+error.statusText);
 		});
 
 	};

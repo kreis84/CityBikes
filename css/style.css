@@ -164,10 +164,15 @@ input:focus, select:focus
 	owerflow: hidden;
 	width: 50%;
 	box-sizing: border-box;
+	position: relative;
 }
 
-
-
+.mapWrapper p
+{
+	text-align: center;
+	position: relative;
+	top: 240px;
+}
 
 .loading
 {
@@ -183,4 +188,34 @@ input:focus, select:focus
 {
 	0%{}
 	100%{ transform: rotate(360deg); }
+}
+
+
+.stationsWrapper.ng-enter, .stationsWrapper.ng-leave {
+    -webkit-transition: 1s linear all;
+    -moz-transition: 1s linear all;
+    -ms-transition: 1s linear all;
+    -o-transition: 1s linear all;
+    transition: 1s linear all;
+    overflow:hidden;
+}
+
+.stationsWrapper.ng-enter {
+    max-height: 0;
+    opacity: 0;
+}
+
+.stationsWrapper.ng-enter.ng-enter-active {
+    max-height: 999px;
+    opacity:1;
+}
+
+.stationsWrapper.ng-leave {
+    max-height: 999px;
+    opacity:1;
+}
+
+.stationsWrapper.ng-leave.ng-leave-active {
+    max-height: 0;
+    opacity:1;
 }
