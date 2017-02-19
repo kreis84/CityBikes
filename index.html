@@ -43,6 +43,10 @@
 					<p>{{item.location.country}}</p>
 				</div>
 				<div class="stationsWrapper" ng-if='showed[$index]'>
+					<div class="mapWrapper">
+						<p>SELECT STATION</p>
+						<div id="map" ng-click='mapClick($event)'></div>
+					</div>
 					<div class='stationsForm' ng-show='showed[$index]'>
 						<div class="keys">
 							<p>STATION NAME</p>
@@ -55,10 +59,6 @@
 							<p>{{item.empty_slots}}</p>
 						</div>
 
-					</div>
-					<div class="mapWrapper">
-						<p>SELECT STATION</p>
-						<div id="map" ng-click='mapClick($event)'></div>
 					</div>
 						<!-- maap here -->
 
