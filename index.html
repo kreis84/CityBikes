@@ -35,6 +35,7 @@
 				<P>COUNTRY</P>
 			</div>
 			<div class="company" ng-repeat='item in data | filter: {location: {country: selectedCountry }} | filter: {location: {city: selectedCity}} | filter: {location: {city: selectedCityFromText}}' ng-click='showStations(this.item.href, $index)'>
+				<div ng-if='showed[$index]' ng-class='{loading: loading}'></div>
 				<div class="companyItem" ng-class='{companySelected: showed[$index]}'>
 					<p>{{item.location.city}}</p>
 					<p>{{item.name}}</p>
@@ -54,8 +55,9 @@
 						</div>
 
 					</div>
-					<div id="map" ng-click='mapClick($event)'></div>
-
+					<div class="mapWrapper">
+						<div id="map" ng-click='mapClick($event)'></div>
+					</div>
 						<!-- maap here -->
 
 				</div>

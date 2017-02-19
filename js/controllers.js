@@ -1,8 +1,8 @@
 angular.module('git')
 
-.controller('mainController', function($scope, $window, bikesFactory, helperFactory)
+.controller('mainController', function($scope, $window, bikesFactory, helperFactory, $element)
 {
-
+	//$element.addClass('loading');
 
 	$scope.data = [];
 	$scope.countries = [];
@@ -13,7 +13,7 @@ angular.module('git')
 	$scope.showCompanyList = '';
 	$scope.stations = [];
 	$scope.showed = [];
-
+	$scope.loading = false;
 
 	$scope.$watch('selectedCountry', function(){ 
 		if($scope.selectedCountry !== '') 
@@ -33,7 +33,7 @@ angular.module('git')
 
 	$scope.showStations = function(url, index)
 	{
-		
+		$scope.loading = true;
 		$scope.showed = Array($scope.cities).fill(false);
 		bikesFactory.stations(url)
 		.then(
@@ -41,11 +41,13 @@ angular.module('git')
 		{
 			$scope.stations = response.data.network.stations;
 			$scope.showed[index] = true;
+			$scope.loading = false;
 		},
 		function(error)
 		{
 
 		});
+
 	};
 
 	$scope.stationSelect = function($event, latitude, longitude)
