@@ -48,7 +48,7 @@ angular.module('git')
 
 	};
 
-	$scope.stationSelect = function($event, latitude, longitude)
+	$scope.stationSelect = function($event, latitude, longitude, name)
 	{
 		$event.stopPropagation();
 		$scope.map = new google.maps.Map(document.getElementById('map'), {
@@ -62,7 +62,7 @@ angular.module('git')
     	var marker = new google.maps.Marker({
 	   		position: {lat: latitude, lng: longitude},
 		    map: $scope.map,
-		    title: 'Hello World!'
+		    title: name
   		});
 
 		

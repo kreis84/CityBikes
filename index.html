@@ -53,7 +53,7 @@
 							<p>FREE BIKES</p>
 							<p>EMPTY SLOTS</p>
 						</div>
-						<div ng-repeat='item in stations' ng-click='stationSelect($event, this.item.latitude, this.item.longitude)' >
+						<div ng-repeat='item in stations' ng-click='stationSelect($event, this.item.latitude, this.item.longitude, this.item.name)' >
 							<p>{{item.name}}</p>
 							<p>{{item.free_bikes}}</p>
 							<p>{{item.empty_slots}}</p>
